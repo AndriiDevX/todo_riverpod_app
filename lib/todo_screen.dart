@@ -42,6 +42,11 @@ class TodoScreen extends ConsumerWidget {
         itemBuilder: (context, index) {
           final todo = todos[index];
           return ListTile(
+            leading: Checkbox(value: 
+            todo.isCompleted, 
+            onChanged: (_) {
+              ref.read(todoProvider.notifier).toggleTodo(todo.id);
+            }),
             trailing: IconButton(
               onPressed: () {
                 ref.read(todoProvider.notifier).removeTodo(todo);

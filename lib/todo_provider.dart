@@ -16,14 +16,14 @@ class TodoNotifier extends StateNotifier<List<TodoModel>>{
     state = state.where((p) => p.id != todo.id).toList();
   }
 
-  void toggleTodo(int id){
-    state = state.map((todo){
-      if (todo.id == id){
-        return todo.copyWith(isCompleted: !todo.isCompleted);
-      }
-      return todo;
-    }).toList();
-  }
+void toggleTodo(int id){
+  state = state.map((todo){
+    if( todo.id == id){
+      return todo.copyWith(isCompleted: !todo.isCompleted);
+    }
+    return todo;
+  } ).toList();
+}
 
   
 
